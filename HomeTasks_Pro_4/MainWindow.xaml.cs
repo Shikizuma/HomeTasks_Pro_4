@@ -84,9 +84,11 @@ namespace HomeTasks_Pro_4
 		{
 			string filePath = FILE;
 
-			string fileContent = File.ReadAllText(filePath);
-
-			ShowTextBox.Text = fileContent;
+			using (StreamReader reader = new StreamReader(filePath))
+			{
+				string fileContent = reader.ReadToEnd();
+				ShowTextBox.Text = fileContent;
+			}
 		}
 	}
 }
